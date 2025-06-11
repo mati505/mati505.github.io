@@ -1,0 +1,86 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flappy Bird with Squares</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+        canvas {
+            display: block;
+            background: #70c5ce;
+        }
+    </style>
+</head>
+<body>
+    <div class="flex justify-center items-center h-screen">
+        <canvas id="gameCanvas" width="320" height="480"></canvas>
+    </div>
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+
+        const birdSize = 20;
+        const birdX = 50;
+        let birdY = 150;
+        const gravity = 1.5;
+        const jump = 25;
+
+        const gap = 85;
+        const pipeWidth = 50;
+        const pipeHeight = 200;
+        const pipeSpeed = 2;
+
+        let pipes = [];
+        pipes[0] = {
+            x: canvas.width,
+            y: 0
+        };
+
+        document.addEventListener('keydown', moveUp);
+
+        function moveUp() {
+            birdY -= jump;
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Draw bird
+            ctx.fillStyle = "#ff0";
+            ctx.fillRect(birdX, birdY, birdSize, birdSize);
+
+            // Draw pipes
+            for (let i = 0; i < pipes.length; i++) {
+                ctx.fillStyle = "#0f0";
+                ctx.fillRect(pipes[i].x, pipes[i].y, pipeWidth, pipeHeight);
+                ctx.fillRect(pipes[i].x, pipes[i].y + pipeHeight + gap, pipeWidth, canvas.height);
+
+                pipes[i].x -= pipeSpeed;
+
+                if (pipes[i].x == 125) {
+                    pipes.push({
+                        x: canvas.width,
+                        y: Math.floor(Math.random() * pipeHeight) - pipeHeight
+                    });
+                }
+
+                // Collision detection
+                if (birdX + birdSize >= pipes[i].x && birdX <= pipes[i].x + pipeWidth && (birdY <= pipes[i].y + pipeHeight || birdY + birdSize >= pipes[i].y + pipeHeight + gap) || birdY + birdSize >= canvas.height) {
+                    location.reload(); // reload the page
+                }
+            }
+
+            birdY += gravity;
+
+            requestAnimationFrame(draw);
+        }
+
+        draw();
+    </script>
+</body>
+</html>
