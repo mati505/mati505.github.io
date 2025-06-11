@@ -1,12 +1,79 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Inter&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <title>Genius Hour Project Mati</title>
+</head>
 <body>
+    <h1 class="heading">How Webpages Work: A Simple Guide</h1>
+    <hr>
+    <!--Introduction div-->
+    <div class="intro section active" id="section1">
+    <h3>Hi! In this webpage, I will try to explain (to the best of my abilities), how webpages work!</h3>
+    <h3>I made this webpage full of practical examples; if you want to see how a piece of code works in action, just press the "Try it!" button!</h3>
+    <h3>You can also see the webpage code in the footer of this webpage: you can test it out by yourself!</h3>
+    <h3>Hope you have fun learing how webpages work!</h3>
+    <button class="nextbtn" id="nextbtn">Start your journey!</button>
+    </div>
+    <!--3 Basic Web Languages Home-->
+    <div class="normaltext section" id="section2">
+    <h1 class="heading">The 3 Basic Web Languages</h1>
+    <h3>Webpages need to do a lot of stuff at once, and it can get confusing (very) when you need to manage everything in one code document.</h3>
+    <h3>That's why programmers made 3 different main Web languages, each managing a separate part of the webpage. Every webpage builds upon these.</h3>
+    <h3>In this section, I will explain a little bit about each one of them, and what order to learn them in:</h3>
+    <h2 class="subheading">HTML: Web Backbone</h2>
+    <h3>HTML is short for Hyper Text Markup Language, a fancy description for "what the webpage actually contains". It doesn't have any fancy styling, but all of the webpages content is made in HTML </h3>
+    <button class="nextbtn" id="toHTML">Interested? Jump to HTML 🧱</button>
+    <h2 class="subheading">CSS: The Look Lounge</h2>
+    <h3>You can say anything you want about HTML, but it definetly isn't pretty. Without CSS, our creations would still be bland, greyish, and not interesting paragraphs.</h3>
+    <button class="nextbtn" id="toCSS">Seems fun? Hop on over to CSS 🎨</button>
+    <h2 class="subheading">Javascript: The Action Arena</h2>
+    <h3>Who cares if you have nice styles and content? Without Javascript, everything would be so boooring. Could you even survive a day without annoying cat popups?</h3>
+    <button class="nextbtn" id="toJS">Want more action? Whoosh over to JS! ⚡</button>
+    </div>
+<!--HTML Section-->
+<div class="section normaltext" id="htmlSection">
+  <h2 class="heading">HTML: The Web's Backbone 🦴</h2>
+  <h3>HTML holds all the content of a webpage: text, images, buttons, and more.</h3>
+  <h3>Try writing your own HTML below!</h3>
+<h1>Hello World!</h1>
+<p>This is my first webpage</p>
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;title&gt;My Page&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hello World&lt;/h1&gt;
+    &lt;p&gt;This is an example.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+  <textarea id="htmlCode" class="code-editor" placeholder="Type some HTML here...">
 
-<h1>My First Heading</h1>
+  </textarea>
 
-<p>My first paragraph.</p>
-<p>This is another paragraph</p>
+  <button onclick="openInNewPage()" class="run-btn">Open in New Page</button>
+
+  <button class="nextbtn" id="nextbtn">Next</button>
+</div>
+
+
+
+    <div class="section" id="cssSection">
+    <!-- Your CSS explanation here -->
+    </div>
+
+    <div class="section" id="jsSection">
+    <!-- Your JavaScript explanation here -->
+    </div>
+    <h3 class="credits"> Made by Mati </h3>
+    <script src="script.js"></script>
 </body>
 </html>
-
 
